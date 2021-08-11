@@ -1,0 +1,54 @@
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
+package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Robot;
+
+public class OutputAllDataCommand extends CommandBase {
+  /**
+   * Creates a new OutputAllDataCommand.
+   */
+  public OutputAllDataCommand() {
+    // Use addRequirements() here to declare subsystem dependencies.
+  }
+
+  // Called when the command is initially scheduled.
+  @Override
+  public void initialize() {
+
+  }
+
+  // Called every time the scheduler runs while the command is scheduled.
+  @Override
+  public void execute() {
+    SmartDashboard.putNumber("Left Drive Value", Robot.driveSubsystem.getLeftDriveValue());
+    SmartDashboard.putNumber("Right Drive Value", Robot.driveSubsystem.getRightDriveValue());
+    // SmartDashboard.putNumber("Drive Gyro Value", Robot.driveSubsystem.getGyroValue());
+    SmartDashboard.putNumber("Left Encoder", Robot.driveSubsystem.getLeftDriveEncoder());
+    SmartDashboard.putNumber("Right Encoder", Robot.driveSubsystem.getRightDriveEncoder());
+    SmartDashboard.putNumber("Accel X", Robot.driveSubsystem.getDriveAccelX());
+    SmartDashboard.putNumber("Accel Y", Robot.driveSubsystem.getDriveAccelY());
+    SmartDashboard.putNumber("Accel Z", Robot.driveSubsystem.getDriveAccelZ());
+    // SmartDashboard.putNumber("IMU angle", Robot.driveSubsystem.getIMUAngle());
+    SmartDashboard.putNumber("IMU rate", Robot.driveSubsystem.getIMURate());
+    
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {
+  }
+
+  // Returns true when the command should end.
+  @Override
+  public boolean isFinished() {
+    return false;
+  }
+}
